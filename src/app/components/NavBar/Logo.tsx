@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
+import { ReactComponent as LogoIcon } from './assets/logo.svg';
 
 export function Logo() {
   return (
     <Wrapper>
-      <Title>React Boilerplate</Title>
-      <Description>Create React App Template</Description>
+      <LogoIcon className="logoIcon" />
     </Wrapper>
   );
 }
@@ -13,17 +13,15 @@ export function Logo() {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  .logoIcon {
+    width: 100%;
+    height: 36px;
+  }
 `;
 
 const Title = styled.div`
   font-size: 1.25rem;
-  color: ${p => p.theme.text};
+  color: ${p => p.theme.primary};
   font-weight: bold;
   margin-right: 1rem;
-`;
-
-const Description = styled.div`
-  font-size: 0.875rem;
-  color: ${p => p.theme.textSecondary};
-  font-weight: normal;
 `;

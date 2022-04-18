@@ -1,28 +1,35 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
-import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
-import { ReactComponent as GithubIcon } from './assets/github-icon.svg';
 
 export function Nav() {
   return (
     <Wrapper>
-      <Item
-        href="https://cansahin.gitbook.io/react-boilerplate-cra-template/"
-        target="_blank"
-        title="Documentation Page"
-        rel="noopener noreferrer"
-      >
-        <DocumentationIcon />
-        Documentation
+      <Item href="#home" target="_self" title="Home" rel="noopener noreferrer">
+        Home
       </Item>
       <Item
-        href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
-        target="_blank"
-        title="Github Page"
+        href="#about"
+        target="_self"
+        title="About"
         rel="noopener noreferrer"
       >
-        <GithubIcon />
-        Github
+        About
+      </Item>
+      <Item
+        href="#experience"
+        target="_self"
+        title="Experience"
+        rel="noopener noreferrer"
+      >
+        Experience
+      </Item>
+      <Item href="#work" target="_self" title="Work" rel="noopener noreferrer">
+        Work
+      </Item>
+      <Item href="#contact" title="Contact">
+        <Button type="button" className="btn btn-primary">
+          Contact
+        </Button>
       </Item>
     </Wrapper>
   );
@@ -34,7 +41,7 @@ const Wrapper = styled.nav`
 `;
 
 const Item = styled.a`
-  color: ${p => p.theme.primary};
+  color: ${p => p.theme.textSecondary};
   cursor: pointer;
   text-decoration: none;
   display: flex;
@@ -54,4 +61,13 @@ const Item = styled.a`
   .icon {
     margin-right: 0.25rem;
   }
+`;
+
+const Button = styled.button`
+  color: ${p => p.theme.primary};
+  background-color: transparent;
+  border: unset;
+  border 1px solid ${p => p.theme.primary};
+  padding: 0.5rem 1rem;
+  border-radius: 0.35rem;
 `;
