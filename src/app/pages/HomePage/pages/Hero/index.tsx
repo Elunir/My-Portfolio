@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 import { ReactComponent as CodingIcon } from '../../assets/coding.svg';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { hero } from 'app/data/data';
 
 export function Hero() {
   const matches = useMediaQuery('(min-width:600px)');
@@ -8,7 +9,7 @@ export function Hero() {
   return (
     <Div>
       <Intro>Hi, My name is</Intro>
-      <Name>Idris Attar</Name>
+      <Name>{hero.name}</Name>
       <div className="designation">
         <Designation style={{ marginRight: 16, fontWeight: 500 }}>
           I'm a
@@ -16,7 +17,7 @@ export function Hero() {
         <Designation>Frontend Developer</Designation>
       </div>
       <Description>Turning UI Designs into working websites.</Description>
-      <Description>{`${matches}`}</Description>
+      <Description>{`Width > 600: ${matches}`}</Description>
 
       <CodingIcon className="codingIcon" />
     </Div>
