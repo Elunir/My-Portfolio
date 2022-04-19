@@ -9490,6 +9490,11 @@ rc@^1.0.1, rc@^1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-animations@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-animations/-/react-animations-1.0.0.tgz#d96222920dfeabec8984d9b2ef2c5a5aadb40f06"
+  integrity sha512-ePPpVgdKnNEXm+LP1ww5s3n0JzebBw9QdRfxRqogzeg1PDIn6kf0pmvgeTeVZQXXpGmHImkIeTiaQR1O6xjntA==
+
 react-app-polyfill@3.0.0, react-app-polyfill@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-3.0.0.tgz#95221e0a9bd259e5ca6b177c7bb1cb6768f68fd7"
@@ -9686,6 +9691,11 @@ react-scripts@5.0.1:
     workbox-webpack-plugin "^6.4.1"
   optionalDependencies:
     fsevents "^2.3.2"
+
+react-scroll-motion@0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/react-scroll-motion/-/react-scroll-motion-0.2.6.tgz#6aa50b889fef54cc28152a79447642ca4a94e019"
+  integrity sha512-KoUgStvnolIdMkVmEa8Q+DY2hxBQtVD1mhRReOfNMCEiHVIEyg73ib/gt5ktJZhEC11eIYALWJON2/A8OZz+DQ==
 
 react-shallow-renderer@^16.13.1:
   version "16.15.0"
