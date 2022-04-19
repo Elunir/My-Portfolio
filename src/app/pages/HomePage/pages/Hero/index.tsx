@@ -25,7 +25,7 @@ export function Hero() {
       <Description>Turning UI Designs into working websites.</Description>
       <Description>{`Width > 600: ${matches}`}</Description>
       <CodingIcon className="codingIcon" />
-      <FloatingDetails />
+        <FloatingDetails />
     </Div>
   );
 }

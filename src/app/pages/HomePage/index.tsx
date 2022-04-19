@@ -6,7 +6,8 @@ import { Hero } from './pages/Hero';
 import { About } from './pages/About';
 import { Experience } from './pages/Experience';
 import { Work } from './pages/Work';
-import { Contact } from './pages/Contact';
+import { Footer } from './pages/Footer';
+import Fade from 'react-reveal/Fade';
 
 export function HomePage() {
   return (
@@ -17,11 +18,17 @@ export function HomePage() {
       <NavBar />
       <PageWrapper>
         <Hero />
-        <About />
-        <Experience />
-        <Work />
-        <Contact />
+        <Fade left>
+          <About />
+        </Fade>
+        <Fade right>
+          <Experience />
+        </Fade>
+        <Fade left>
+          <Work />
+        </Fade>
       </PageWrapper>
+      <Footer />
     </>
   );
 }

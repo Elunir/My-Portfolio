@@ -70,4 +70,9 @@ const Button = styled.button`
   border 1px solid ${p => p.theme.primary};
   padding: 0.5rem 1rem;
   border-radius: 0.35rem;
+  :hover {
+    background-color: ${p => p.theme.primary};
+    color: ${p => p.theme.background};
+    font-weight: 400;
+  }
 `;
