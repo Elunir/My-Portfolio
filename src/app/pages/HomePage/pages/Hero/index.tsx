@@ -3,11 +3,12 @@ import { ReactComponent as CodingIcon } from '../../assets/coding.svg';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { hero } from 'app/data/data';
 import { FloatingDetails } from '../FloatingDetails';
-import { zoomInDown, slideInUp, rubberBand } from 'react-animations';
+import { zoomInDown, slideInUp, rubberBand, fadeIn } from 'react-animations';
 
 const zoomDown = keyframes`${zoomInDown}`;
 const slideUp = keyframes`${slideInUp}`;
 const rubberband = keyframes`${rubberBand}`;
+const fade = keyframes`${fadeIn}`;
 
 export function Hero() {
   const matches = useMediaQuery('(min-width:600px)');
@@ -25,7 +26,7 @@ export function Hero() {
       <Description>Turning UI Designs into working websites.</Description>
       <Description>{`Width > 600: ${matches}`}</Description>
       <CodingIcon className="codingIcon" />
-        <FloatingDetails />
+      <FloatingDetails />
     </Div>
   );
 }
@@ -37,8 +38,9 @@ const Div = styled.div`
   justify-content: flex-end;
   height: 93vh;
   overflow: hidden;
+  width: 100%;
   .designation {
-    animation: 2s ${zoomDown};
+    animation: 3s ${fade};
   }
   .codingIcon {
     width: 100%;
@@ -56,7 +58,7 @@ const Name = styled.span`
   color: ${props => props.theme.text};
   font-size: 4rem;
   font-weight: bold;
-  animation: 1s ${zoomDown};
+  animation: 0.5s ${zoomDown};
 `;
 const Designation = styled.span`
   color: ${props => props.theme.text};
@@ -68,5 +70,5 @@ const Description = styled.span`
   font-size: 1.2rem;
   font-weight: regular;
   margin-top: 10px;
-  animation: 3s ${zoomDown};
+  animation: 3s ${fade};
 `;

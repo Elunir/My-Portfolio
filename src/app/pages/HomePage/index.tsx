@@ -8,10 +8,11 @@ import { Experience } from './pages/Experience';
 import { Work } from './pages/Work';
 import { Footer } from './pages/Footer';
 import Fade from 'react-reveal/Fade';
+import styled from 'styled-components/macro';
 
 export function HomePage() {
   return (
-    <>
+    <Div>
       <Helmet>
         <title>Home Page</title>
       </Helmet>
@@ -29,6 +30,8 @@ export function HomePage() {
         </Fade>
       </PageWrapper>
       <Footer />
-    </>
+    </Div>
   );
 }
+
+const Div = styled.div``;

@@ -1,23 +1,76 @@
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import styled from 'styled-components/macro';
 
 export function Work() {
   return (
-    <Div>
-      <div style={{ display: 'flex' }}>
-        <div>
-          <div>
-            <Title>My Work</Title>
-          </div>
-          <Text>asdasdsdsadasd</Text>
-        </div>
+    <Box style={{ marginTop: 20 }} sx={{ flexGrow: 1 }}>
+      <div>
+        <Title>Things I've built</Title>
       </div>
-    </Div>
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <Card className="Card">
+            <h1>Card</h1>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className="Card">
+            <h1>Card</h1>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className="Card">
+            <h1>Card</h1>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className="Card">
+            <h1>Card</h1>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className="Card">
+            <h1>Card</h1>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className="Card">
+            <h1>Card</h1>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className="Card">
+            <h1>Card</h1>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className="Card">
+            <h1>Card</h1>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className="Card">
+            <h1>Card</h1>
+          </Card>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 
-const Div = styled.div`
-  margin-top: 40px;
+const Card = styled.div`
+  background-color: ${p => p.theme.primary};
+  opacity: 0.5;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 8px;
+  :hover {
+    opacity: 1;
+  }
 `;
+
 const Title = styled.div`
   font-size: 2rem;
   color: ${props => props.theme.primary};
@@ -32,12 +85,8 @@ const Title = styled.div`
     background-color: #5ceaca;
     position: relative;
     display: block;
-    margin-left: 45%;
+    margin-left: 68%;
     margin-top: -6%;
+    width: 400px;
   }
-`;
-
-const Text = styled.span`
-  font-size: 1rem;
-  color: ${props => props.theme.text};
 `;

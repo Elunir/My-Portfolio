@@ -73,4 +73,9 @@ const Div = styled.div`
       color: ${props => props.theme.primary};
     }
   }
+  @media only screen and (max-width: 1300px) {
+    .details {
+      display: none;
+    }
+  }
 `;

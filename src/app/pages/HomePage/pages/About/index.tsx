@@ -9,7 +9,9 @@ export function About() {
           <div>
             <Title>About me</Title>
           </div>
-          <Text>{about.description}</Text>
+          <div className="textSection">
+            <Text>{about.description}</Text>
+          </div>
         </div>
         <Image src={about.image} />
       </div>
@@ -19,6 +21,11 @@ export function About() {
 
 const Div = styled.div`
   margin-top: 40px;
+  .textSection {
+    background-color: #0e213d;
+    padding: 16px;
+    border-radius: 8px;
+  }
 `;
 
 const Title = styled.div`

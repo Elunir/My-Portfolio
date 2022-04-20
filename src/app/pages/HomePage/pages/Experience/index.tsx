@@ -9,17 +9,17 @@ export function Experience() {
           <Title>Where I've Worked</Title>
         </div>
         <WorkedAt>
-          {experience.map(item => {
+          {experience.map((item, index) => {
             return (
-              <Job>
+              <Job key={index}>
                 <JobTitle>
                   <Designation>{item.designation}</Designation>
                   {item.company}
                 </JobTitle>
                 <Year>{item.duration}</Year>
                 <List>
-                  {item.list.map(listItem => {
-                    return <ListItem>{listItem.text}</ListItem>;
+                  {item.list.map((listItem, index) => {
+                    return <ListItem key={index}>{listItem.text}</ListItem>;
                   })}
                 </List>
               </Job>
@@ -61,7 +61,10 @@ const WorkedAt = styled.div``;
 const Job = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: #0e213d;
+  padding: 16px;
+  border-radius: 8px;
 `;
 
 const JobTitle = styled.span`
