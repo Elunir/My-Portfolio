@@ -4,15 +4,24 @@ import { Logo } from './Logo';
 import { StyleConstants } from 'styles/StyleConstants';
 import { Nav } from './Nav';
 import { PageWrapper } from '../PageWrapper';
+import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 
 export function NavBar() {
+  const matches = useMediaQuery('(min-width:980px)');
+
   return (
-    <Wrapper>
-      <PageWrapper>
-        <Logo />
+    <>
+      {matches ? (
+        <Wrapper>
+          <PageWrapper>
+            <Logo />
+            <Nav />
+          </PageWrapper>
+        </Wrapper>
+      ) : (
         <Nav />
-      </PageWrapper>
-    </Wrapper>
+      )}
+    </>
   );
 }
 

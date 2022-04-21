@@ -37,18 +37,6 @@ const Title = styled.div`
   font-size: 2rem;
   color: ${props => props.theme.primary};
   display: inline-block;
-  width: 400px;
   margin-bottom: 40px;
   font-weight: 600;
-  ::after {
-    content: ' ';
-    display: block;
-    height: 1px;
-    background-color: #5ceaca;
-    position: relative;
-    display: block;
-    margin-left: 68%;
-    margin-top: -6%;
-    width: 650px;
-  }
 `;

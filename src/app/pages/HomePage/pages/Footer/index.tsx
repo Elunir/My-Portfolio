@@ -20,6 +20,5 @@ const Text = styled.span`
   color: ${props => props.theme.textSecondary};
   font-size: 1rem;
   font-weight: 400;
-  text-align: center;
   margin: 0;
 `;

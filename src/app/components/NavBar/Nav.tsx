@@ -1,8 +1,55 @@
+import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 import * as React from 'react';
 import styled from 'styled-components/macro';
+import { slide as Menu } from 'react-burger-menu';
 
 export function Nav() {
-  return (
+  const matches = useMediaQuery('(min-width:980px)');
+
+  const mobileNav = (
+    <MobileWrapper>
+      <Menu right>
+        <Item
+          href="#home"
+          target="_self"
+          title="Home"
+          rel="noopener noreferrer"
+        >
+          Home
+        </Item>
+        <Item
+          href="#about"
+          target="_self"
+          title="About"
+          rel="noopener noreferrer"
+        >
+          About
+        </Item>
+        <Item
+          href="#experience"
+          target="_self"
+          title="Experience"
+          rel="noopener noreferrer"
+        >
+          Experience
+        </Item>
+        <Item
+          href="#work"
+          target="_self"
+          title="Work"
+          rel="noopener noreferrer"
+        >
+          Work
+        </Item>
+        <Item href="#contact" title="Contact">
+          <Button type="button" className="btn btn-primary">
+            Contact
+          </Button>
+        </Item>
+      </Menu>
+    </MobileWrapper>
+  );
+  const desktopNav = (
     <Wrapper>
       <Item href="#home" target="_self" title="Home" rel="noopener noreferrer">
         Home
@@ -33,11 +80,96 @@ export function Nav() {
       </Item>
     </Wrapper>
   );
+
+  return <>{matches ? desktopNav : mobileNav}</>;
 }
 
-const Wrapper = styled.nav`
+const Wrapper = styled.div`
   display: flex;
   margin-right: -1rem;
+  height: 100vh;
+`;
+
+const MobileWrapper = styled.div`
+  display: flex;
+  margin-right: -1rem;
+  /* Position and sizing of burger button */
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    right: 40px;
+    top: 24px;
+  }
+
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #373a47;
+  }
+
+  /* Color/shape of burger icon bars on hover*/
+  .bm-burger-bars-hover {
+    background: #a90000;
+  }
+
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #bdc3c7;
+  }
+
+  /*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    right: 0;
+  }
+
+  /* General sidebar styles */
+  .bm-menu {
+    background: #373a47;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    height: 200vh !important;
+  }
+
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+  }
+
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+
+  /* Styling of overlay */
+  .bm-overlay {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transition: opacity 0.3s ease 0s;
+    top: 0;
+    right: 0;
+  }
 `;
 
 const Item = styled.a`

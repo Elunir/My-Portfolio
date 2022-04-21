@@ -1,9 +1,12 @@
 import styled from 'styled-components/macro';
 import { experience } from 'app/data/data';
+import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 
 export function Experience() {
+  const matches = useMediaQuery('(min-width:980px)');
+
   return (
-    <Div>
+    <Div style={{ marginLeft: matches ? 40 : 0 }}>
       <div>
         <div>
           <Title>Where I've Worked</Title>
@@ -33,27 +36,14 @@ export function Experience() {
 
 const Div = styled.div`
   margin-top: 40px;
-  margin-left: 40px;
 `;
 
 const Title = styled.div`
   font-size: 2rem;
   color: ${props => props.theme.primary};
   display: inline-block;
-  width: 400px;
   margin-bottom: 40px;
   font-weight: 600;
-  ::after {
-    content: ' ';
-    display: block;
-    height: 1px;
-    background-color: #5ceaca;
-    position: relative;
-    margin-left: 80%;
-    margin-top: -6%;
-    width: 424px;
-}
-  }
 `;
 
 const WorkedAt = styled.div``;

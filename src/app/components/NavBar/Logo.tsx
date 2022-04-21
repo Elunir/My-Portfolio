@@ -18,10 +18,3 @@ const Wrapper = styled.div`
     height: 36px;
   }
 `;
-
-// const Title = styled.div`
-//   font-size: 1.25rem;
-//   color: ${p => p.theme.primary};
-//   font-weight: bold;
-//   margin-right: 1rem;
-// `;

@@ -1,14 +1,23 @@
 import styled from 'styled-components/macro';
 import { about } from 'app/data/data';
+import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 
 export function About() {
+  const matches = useMediaQuery('(min-width:700px)');
+
   return (
     <Div>
-      <div style={{ display: 'flex' }}>
+      <div>
+        <Title>About me</Title>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: matches ? '' : 'center',
+          flexDirection: matches ? 'row' : 'column',
+        }}
+      >
         <div>
-          <div>
-            <Title>About me</Title>
-          </div>
           <div className="textSection">
             <Text>{about.description}</Text>
           </div>
@@ -32,19 +41,8 @@ const Title = styled.div`
   font-size: 2rem;
   color: ${props => props.theme.primary};
   display: inline-block;
-  width: 400px;
   margin-bottom: 40px;
   font-weight: 600;
-  ::after {
-    content: ' ';
-    display: block;
-    height: 1px;
-    background-color: #5ceaca;
-    position: relative;
-    display: block;
-    margin-left: 45%;
-    margin-top: -6%;
-  }
 `;
 
 const Text = styled.span`

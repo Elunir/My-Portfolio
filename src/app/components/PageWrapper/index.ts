@@ -6,3 +6,10 @@ export const PageWrapper = styled.div`
   padding: 0 1.5rem;
   box-sizing: content-box;
 `;
+
+export const PageWrapperMobile = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: content-box;
+`;

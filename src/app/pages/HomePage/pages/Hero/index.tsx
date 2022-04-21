@@ -13,10 +13,10 @@ const rubberband = keyframes`${rubberBand}`;
 const fade = keyframes`${fadeIn}`;
 
 export function Hero() {
-  const matches = useMediaQuery('(min-width:600px)');
+  const matches = useMediaQuery('(min-width:980px)');
 
   return (
-    <Div>
+    <Div style={{ alignItems: matches ? 'center' : 'flex-start' }}>
       <Intro
         whileHover={{ scale: 1.1, color: themes.dark.primary }}
         transition={{ type: 'spring', stiffness: 300 }}
@@ -37,6 +37,7 @@ export function Hero() {
         className="designation"
         whileHover={{ scale: 1.1, color: '#9e9e9e' }}
         transition={{ type: 'spring', stiffness: 300 }}
+        style={{ display: matches ? 'flex' : 'contents' }}
       >
         <Designation style={{ marginRight: 16, fontWeight: 500 }}>
           I'm a
@@ -50,7 +51,7 @@ export function Hero() {
         Turning UI Designs into working websites.
       </Description>
       <Description>{`Width > 600: ${matches}`}</Description>
-      <CodingIcon className="codingIcon" />
+      <CodingIcon className="codingIcon" height={matches ? '580px' : '100%'} />
       <FloatingDetails />
     </Div>
   );
@@ -59,7 +60,6 @@ export function Hero() {
 const Div = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-end;
   height: 93vh;
   overflow: hidden;
@@ -69,7 +69,6 @@ const Div = styled.div`
   }
   .codingIcon {
     width: 100%;
-    height: 565px;
     margin-top: 4px;
     animation: 2s ${slideUp};
   }
