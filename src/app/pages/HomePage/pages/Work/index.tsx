@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import styled from 'styled-components/macro';
+import { motion } from 'framer-motion';
 
 export function Work() {
   return (
@@ -10,47 +11,11 @@ export function Work() {
       </div>
       <Grid container spacing={2}>
         <Grid item xs={4}>
-          <Card className="Card">
-            <h1>Card</h1>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card className="Card">
-            <h1>Card</h1>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card className="Card">
-            <h1>Card</h1>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card className="Card">
-            <h1>Card</h1>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card className="Card">
-            <h1>Card</h1>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card className="Card">
-            <h1>Card</h1>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card className="Card">
-            <h1>Card</h1>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card className="Card">
-            <h1>Card</h1>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card className="Card">
+          <Card
+            className="Card"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.8 }}
+          >
             <h1>Card</h1>
           </Card>
         </Grid>
@@ -59,16 +24,13 @@ export function Work() {
   );
 }
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   background-color: ${p => p.theme.primary};
-  opacity: 0.5;
+  opacity: 1;
   justify-content: center;
   align-items: center;
   display: flex;
   border-radius: 8px;
-  :hover {
-    opacity: 1;
-  }
 `;
 
 const Title = styled.div`
@@ -87,6 +49,6 @@ const Title = styled.div`
     display: block;
     margin-left: 68%;
     margin-top: -6%;
-    width: 400px;
+    width: 650px;
   }
 `;
