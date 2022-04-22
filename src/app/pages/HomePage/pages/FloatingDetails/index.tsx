@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { hero } from 'app/data/data';
 
 export function FloatingDetails() {
   return (
@@ -6,12 +7,12 @@ export function FloatingDetails() {
       <div className="details">
         <div className="detail-right">
           <span className="email">
-            <a href="mailto:idrisattar@icloud.com">idrisattar@icloud.com</a>
+            <a href={`mailto:${hero.email}`}>{hero.email}</a>
           </span>
         </div>
         <div className="detail-left">
           <span className="resume">
-            <a href="mailto:idrisattar@icloud.com">DOWNLOAD RESUME</a>
+            <a href={hero.resumeLink || ''}>DOWNLOAD RESUME</a>
           </span>
         </div>
       </div>

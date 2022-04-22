@@ -8,7 +8,7 @@ export const PageWrapper = styled.div`
 `;
 
 export const PageWrapperMobile = styled.div`
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   padding: 0 1.5rem;
   box-sizing: content-box;

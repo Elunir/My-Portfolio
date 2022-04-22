@@ -1,11 +1,11 @@
 const lightTheme = {
   primary: '#5CEACA',
-  text: 'rgba(58,52,51,1)',
-  textSecondary: 'rgba(58,52,51,0.7)',
-  background: 'rgba(255,255,255,1)',
-  backgroundVariant: 'rgba(251,249,249,1)',
-  border: 'rgba(58,52,51,0.12)',
-  borderLight: 'rgba(58,52,51,0.05)',
+  text: '#CCD6F6',
+  textSecondary: '#848EAA',
+  background: '#0B192E',
+  backgroundVariant: 'rgba(28,26,26,1)',
+  border: 'rgba(241,233,231,0.15)',
+  borderLight: 'rgba(241,233,231,0.05)',
 };
 
 const darkTheme: Theme = {

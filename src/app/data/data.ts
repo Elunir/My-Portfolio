@@ -1,5 +1,7 @@
 export const hero = {
   name: 'Idris Attar',
+  email: 'idrisattar@icloud.com',
+  resumeLink: '',
   role: [
     {
       name: 'Graphic Designer',

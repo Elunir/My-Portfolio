@@ -51,6 +51,8 @@ const Text = styled.span`
 `;
 
 const Image = styled.img`
+  width: 100%;
   margin: 20px;
-  height: 300px;
+  height: auto;
+  border-radius: 8px;
 `;

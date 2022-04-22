@@ -1,7 +1,8 @@
 import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 import * as React from 'react';
 import styled from 'styled-components/macro';
-import { slide as Menu } from 'react-burger-menu';
+import { stack as Menu } from 'react-burger-menu';
+import { hero } from 'app/data/data';
 
 export function Nav() {
   const matches = useMediaQuery('(min-width:980px)');
@@ -40,6 +41,14 @@ export function Nav() {
           rel="noopener noreferrer"
         >
           Work
+        </Item>
+        <Item
+          href={hero.resumeLink || ''}
+          target="_self"
+          title="Download Resume"
+          rel="noopener noreferrer"
+        >
+          Download Resume
         </Item>
         <Item href="#contact" title="Contact">
           <Button type="button" className="btn btn-primary">
@@ -87,7 +96,6 @@ export function Nav() {
 const Wrapper = styled.div`
   display: flex;
   margin-right: -1rem;
-  height: 100vh;
 `;
 
 const MobileWrapper = styled.div`
@@ -181,6 +189,7 @@ const Item = styled.a`
   font-size: 0.875rem;
   font-weight: 500;
   align-items: center;
+  margin: 1rem 0;
 
   &:hover {
     opacity: 0.8;
