@@ -9,6 +9,7 @@ var Link = Scroll.Link;
 
 export function Nav() {
   const matches = useMediaQuery('(min-width:980px)');
+  const resumeLink = useMediaQuery('(min-width:1300px)');
 
   const mobileNav = (
     <MobileWrapper>
@@ -67,6 +68,16 @@ export function Nav() {
       <Link to="work" spy={true} smooth={true} offset={-100} duration={500}>
         <Item>Work</Item>
       </Link>
+      {resumeLink ? undefined : (
+        <Item
+          href={hero.resumeLink || ''}
+          target="_self"
+          title="Download Resume"
+          rel="noopener noreferrer"
+        >
+          Download Resume
+        </Item>
+      )}
       <Item href="#contact" title="Contact">
         <Button type="button" className="btn btn-primary">
           Contact

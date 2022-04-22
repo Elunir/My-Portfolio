@@ -6,6 +6,8 @@ import { FloatingDetails } from '../FloatingDetails';
 import { zoomInDown, slideInUp, rubberBand, fadeIn } from 'react-animations';
 import { motion } from 'framer-motion';
 import { themes } from 'styles/theme/themes';
+import TextTransition, { presets } from 'react-text-transition';
+import React, { useState } from 'react';
 
 const zoomDown = keyframes`${zoomInDown}`;
 const slideUp = keyframes`${slideInUp}`;
@@ -14,6 +16,16 @@ const fade = keyframes`${fadeIn}`;
 
 export function Hero() {
   const matches = useMediaQuery('(min-width:980px)');
+
+  const [index, setIndex] = useState(0);
+
+  React.useEffect(() => {
+    const intervalId = setInterval(
+      () => setIndex(index => index + 1),
+      5500, // every 3 seconds
+    );
+    return () => clearTimeout(intervalId);
+  }, []);
 
   return (
     <Div id="home" style={{ alignItems: matches ? 'center' : 'flex-start' }}>
@@ -33,24 +45,23 @@ export function Hero() {
       >
         {hero.name}
       </Name>
-      <motion.div
-        className="designation"
-        whileHover={{ scale: 1.1, color: '#9e9e9e' }}
-        transition={{ type: 'spring', stiffness: 300 }}
-        style={{ display: matches ? 'flex' : 'contents' }}
-      >
+      <div style={{ display: 'flex' }}>
         <Designation style={{ marginRight: 16, fontWeight: 500 }}>
           I'm a
         </Designation>
-        <Designation>Frontend Developer</Designation>
-      </motion.div>
-      <Description
-        whileHover={{ scale: 1.2, color: themes.dark.primary }}
-        transition={{ type: 'spring', stiffness: 300 }}
-      >
-        Turning UI Designs into working websites.
+        <Designation>
+          <TextTransition
+            text={hero.role[index % hero.role.length].name}
+            springConfig={presets.gentle}
+          />
+        </Designation>
+      </div>
+      <Description>
+        <TextTransition
+          text={hero.role[index % hero.role.length].description}
+          springConfig={presets.slow}
+        />
       </Description>
-      <Description>{`Width > 600: ${matches}`}</Description>
       <CodingIcon className="codingIcon" height={matches ? '580px' : '100%'} />
       <FloatingDetails />
     </Div>
@@ -95,4 +106,6 @@ const Description = styled(motion.span)`
   font-weight: regular;
   margin-top: 10px;
   animation: 3s ${fade};
+  text-align: center;
+  height: 62px;
 `;

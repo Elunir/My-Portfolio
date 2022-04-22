@@ -15,9 +15,11 @@ export function Experience() {
           {experience.map((item, index) => {
             return (
               <Job key={index}>
-                <JobTitle>
+                <JobTitle style={{ display: matches ? 'flex' : 'contents' }}>
                   <Designation>{item.designation}</Designation>
-                  {item.company}
+                  <JobTitle
+                    style={{ marginLeft: matches ? 8 : 0 }}
+                  >{`@ ${item.company}`}</JobTitle>
                 </JobTitle>
                 <Year>{item.duration}</Year>
                 <List>
@@ -65,11 +67,6 @@ const JobTitle = styled.span`
 const Designation = styled.span`
   font-size: 1.2rem;
   color: ${props => props.theme.text};
-  ::after {
-    content: '@ ';
-    color: ${props => props.theme.primary};
-    margin-left: 0.8rem;
-  }
 `;
 
 const Year = styled.span`
