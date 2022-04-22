@@ -16,7 +16,7 @@ export function Hero() {
   const matches = useMediaQuery('(min-width:980px)');
 
   return (
-    <Div style={{ alignItems: matches ? 'center' : 'flex-start' }}>
+    <Div id="home" style={{ alignItems: matches ? 'center' : 'flex-start' }}>
       <Intro
         whileHover={{ scale: 1.1, color: themes.dark.primary }}
         transition={{ type: 'spring', stiffness: 300 }}
@@ -61,7 +61,6 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 93vh;
   overflow: hidden;
   width: 100%;
   .designation {

@@ -6,7 +6,7 @@ export function About() {
   const matches = useMediaQuery('(min-width:700px)');
 
   return (
-    <Div>
+    <Div id="about">
       <div>
         <Title>About me</Title>
       </div>

@@ -3,6 +3,9 @@ import * as React from 'react';
 import styled from 'styled-components/macro';
 import { stack as Menu } from 'react-burger-menu';
 import { hero } from 'app/data/data';
+import Scroll from 'react-scroll';
+
+var Link = Scroll.Link;
 
 export function Nav() {
   const matches = useMediaQuery('(min-width:980px)');
@@ -10,38 +13,24 @@ export function Nav() {
   const mobileNav = (
     <MobileWrapper>
       <Menu right>
-        <Item
-          href="#home"
-          target="_self"
-          title="Home"
-          rel="noopener noreferrer"
+        <Link to="home" spy={true} smooth={true} offset={-100} duration={500}>
+          <Item>Home</Item>
+        </Link>
+        <Link to="about" spy={true} smooth={true} offset={-100} duration={500}>
+          <Item>About</Item>
+        </Link>
+        <Link
+          to="experience"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
         >
-          Home
-        </Item>
-        <Item
-          href="#about"
-          target="_self"
-          title="About"
-          rel="noopener noreferrer"
-        >
-          About
-        </Item>
-        <Item
-          href="#experience"
-          target="_self"
-          title="Experience"
-          rel="noopener noreferrer"
-        >
-          Experience
-        </Item>
-        <Item
-          href="#work"
-          target="_self"
-          title="Work"
-          rel="noopener noreferrer"
-        >
-          Work
-        </Item>
+          <Item>Experience</Item>
+        </Link>
+        <Link to="work" spy={true} smooth={true} offset={-100} duration={500}>
+          <Item>Work</Item>
+        </Link>
         <Item
           href={hero.resumeLink || ''}
           target="_self"
@@ -60,28 +49,18 @@ export function Nav() {
   );
   const desktopNav = (
     <Wrapper>
-      <Item href="#home" target="_self" title="Home" rel="noopener noreferrer">
-        Home
-      </Item>
-      <Item
-        href="#about"
-        target="_self"
-        title="About"
-        rel="noopener noreferrer"
-      >
-        About
-      </Item>
-      <Item
-        href="#experience"
-        target="_self"
-        title="Experience"
-        rel="noopener noreferrer"
-      >
-        Experience
-      </Item>
-      <Item href="#work" target="_self" title="Work" rel="noopener noreferrer">
-        Work
-      </Item>
+      <Link to="home" spy={true} smooth={true} offset={-100} duration={500}>
+        <Item>Home</Item>
+      </Link>
+      <Link to="about" spy={true} smooth={true} offset={-100} duration={500}>
+        <Item>About</Item>
+      </Link>
+      <Link to="experience" spy={true} smooth={true} offset={-100} duration={500}>
+        <Item>Experience</Item>
+      </Link>
+      <Link to="work" spy={true} smooth={true} offset={-100} duration={500}>
+        <Item>Work</Item>
+      </Link>
       <Item href="#contact" title="Contact">
         <Button type="button" className="btn btn-primary">
           Contact
@@ -96,6 +75,10 @@ export function Nav() {
 const Wrapper = styled.div`
   display: flex;
   margin-right: -1rem;
+  align-items: center;
+  .active {
+    border-bottom: 2px solid #fff;
+  }
 `;
 
 const MobileWrapper = styled.div`

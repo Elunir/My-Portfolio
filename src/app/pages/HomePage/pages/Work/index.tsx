@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export function Work() {
   return (
-    <Box style={{ marginTop: 20 }} sx={{ flexGrow: 1 }}>
+    <Box id="work" style={{ marginTop: 20 }} sx={{ flexGrow: 1 }}>
       <div>
         <Title>Things I've built</Title>
       </div>

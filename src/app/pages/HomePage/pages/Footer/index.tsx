@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 
 export function Footer() {
   return (
-    <Foot>
+    <Foot id='test1'>
       <Text>© Idris Attar - 2022</Text>
     </Foot>
   );
