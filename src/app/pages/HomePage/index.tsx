@@ -9,12 +9,23 @@ import { Footer } from './pages/Footer';
 import Fade from 'react-reveal/Fade';
 import styled from 'styled-components/macro';
 import { useMediaQuery } from '@mui/material';
+// import Scroll from 'react-scroll';
+// var Element = Scroll.Element;
+
+// var Link = Scroll.Link;
+// var DirectLink = Scroll.DirectLink;
+// var Events = Scroll.Events;
+// var scroll = Scroll.animateScroll;
+// var scrollSpy = Scroll.scrollSpy;
 
 export function HomePage() {
   const matches = useMediaQuery('(min-width:980px)');
 
   return (
     <Div>
+      <Helmet>
+        <title>Portfolio</title>
+      </Helmet>
       <NavBar />
       {matches ? (
         <PageWrapper>

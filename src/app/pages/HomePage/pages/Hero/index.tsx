@@ -8,7 +8,6 @@ import { motion } from 'framer-motion';
 import { themes } from 'styles/theme/themes';
 import TextTransition, { presets } from 'react-text-transition';
 import React, { useState } from 'react';
-import { match } from 'assert';
 
 const zoomDown = keyframes`${zoomInDown}`;
 const slideUp = keyframes`${slideInUp}`;
