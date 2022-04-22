@@ -55,7 +55,13 @@ export function Nav() {
       <Link to="about" spy={true} smooth={true} offset={-100} duration={500}>
         <Item>About</Item>
       </Link>
-      <Link to="experience" spy={true} smooth={true} offset={-100} duration={500}>
+      <Link
+        to="experience"
+        spy={true}
+        smooth={true}
+        offset={-100}
+        duration={500}
+      >
         <Item>Experience</Item>
       </Link>
       <Link to="work" spy={true} smooth={true} offset={-100} duration={500}>

@@ -6,7 +6,7 @@ export function Experience() {
   const matches = useMediaQuery('(min-width:980px)');
 
   return (
-    <Div id='experience' style={{ marginLeft: matches ? 40 : 0 }}>
+    <Div id="experience" style={{ marginLeft: matches ? 40 : 0 }}>
       <div>
         <div>
           <Title>Where I've Worked</Title>
