@@ -40,7 +40,7 @@ export function Nav() {
         >
           Download Resume
         </Item>
-        <Item href="#contact" title="Contact">
+        <Item href={`mailto:${hero.email}`} title="Contact">
           <Button type="button" className="btn btn-primary">
             Contact
           </Button>
@@ -78,7 +78,7 @@ export function Nav() {
           Download Resume
         </Item>
       )}
-      <Item href="#contact" title="Contact">
+      <Item href={`mailto:${hero.email}`} title="Contact">
         <Button type="button" className="btn btn-primary">
           Contact
         </Button>

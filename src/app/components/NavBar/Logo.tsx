@@ -4,13 +4,13 @@ import { ReactComponent as LogoIcon } from './assets/logo.svg';
 
 export function Logo() {
   return (
-    <Wrapper>
+    <Wrapper onClick={() => window.scrollTo(0, 0)}>
       <LogoIcon className="logoIcon" />
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.a`
   display: flex;
   align-items: center;
   .logoIcon {

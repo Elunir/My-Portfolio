@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { themes } from 'styles/theme/themes';
 import TextTransition, { presets } from 'react-text-transition';
 import React, { useState } from 'react';
+import { match } from 'assert';
 
 const zoomDown = keyframes`${zoomInDown}`;
 const slideUp = keyframes`${slideInUp}`;
@@ -42,11 +43,21 @@ export function Hero() {
           textShadow: `0px 0px 6px ${themes.dark.primary}`,
         }}
         transition={{ type: 'spring', stiffness: 300 }}
+        style={{
+          fontSize: matches ? undefined : 48,
+          color: matches ? undefined : themes.dark.primary,
+        }}
       >
         {hero.name}
       </Name>
-      <div style={{ display: 'flex' }}>
-        <Designation style={{ marginRight: 16, fontWeight: 500 }}>
+      <div style={{ display: matches ? 'flex' : 'contents' }}>
+        <Designation
+          style={{
+            marginRight: 16,
+            fontWeight: 500,
+            fontSize: matches ? undefined : 28,
+          }}
+        >
           I'm a
         </Designation>
         <Designation>
@@ -56,7 +67,12 @@ export function Hero() {
           />
         </Designation>
       </div>
-      <Description>
+      <Description
+        style={{
+          height: matches ? '62px' : '180px',
+          textAlign: matches ? 'center' : 'left',
+        }}
+      >
         <TextTransition
           text={hero.role[index % hero.role.length].description}
           springConfig={presets.slow}
@@ -106,6 +122,4 @@ const Description = styled(motion.span)`
   font-weight: regular;
   margin-top: 10px;
   animation: 3s ${fade};
-  text-align: center;
-  height: 62px;
 `;
