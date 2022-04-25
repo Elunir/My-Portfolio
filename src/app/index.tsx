@@ -22,7 +22,7 @@ export function App() {
     <BrowserRouter>
       <Helmet
         titleTemplate="%s - Idris Attar"
-        defaultTitle="Idris Attar"
+        defaultTitle="Idris Attar - Portfolio"
         htmlAttributes={{ lang: i18n.language }}
       >
         <meta name="description" content="Idris Attar's Portfolio" />

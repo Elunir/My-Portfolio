@@ -1,37 +1,66 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import styled from 'styled-components/macro';
+import { themes } from 'styles/theme/themes';
+import { project } from 'app/data/data';
 import { motion } from 'framer-motion';
+import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 
 export function Work() {
+  const matches = useMediaQuery('(min-width:980px)');
+
   return (
     <Box id="work" style={{ marginTop: 20 }} sx={{ flexGrow: 1 }}>
       <div>
         <Title>Things I've built</Title>
       </div>
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <Card
-            className="Card"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.8 }}
+      <Grid
+        display={'grid'}
+        gap={'28px'}
+        gridTemplateColumns={matches ? '1fr 1fr' : '1fr'}
+      >
+        {project.map((project, index) => (
+          <motion.div
+            whileHover={{
+              scale: 1.1,
+            }}
+            whileTap={{ scale: 0.9 }}
+            transition={{
+              type: 'tween',
+              duration: 0.3,
+            }}
           >
-            <h1>Card</h1>
-          </Card>
-        </Grid>
+            <Grid
+              item
+              style={{
+                backgroundColor: themes.dark.backgroundVariant,
+                padding: 24,
+                borderRadius: 8,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <Image src={project.image} />
+              <Text style={{ marginTop: 16, fontSize: 20 }}>
+                {project.name}
+              </Text>
+            </Grid>
+          </motion.div>
+        ))}
       </Grid>
     </Box>
   );
 }
 
-const Card = styled(motion.div)`
-  background-color: ${p => p.theme.primary};
-  opacity: 1;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  border-radius: 8px;
-`;
+// const Card = styled(motion.div)`
+//   background-color: ${p => p.theme.primary};
+//   justify-content: center;
+//   align-items: center;
+//   display: flex;
+//   border-radius: 8px;
+//   margin-left: 20px;
+// `;
 
 const Title = styled.div`
   font-size: 2rem;
@@ -39,4 +68,15 @@ const Title = styled.div`
   display: inline-block;
   margin-bottom: 40px;
   font-weight: 600;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+`;
+
+const Text = styled.span`
+  font-size: 1rem;
+  color: ${props => props.theme.text};
 `;

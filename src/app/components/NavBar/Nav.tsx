@@ -1,23 +1,46 @@
 import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
-import * as React from 'react';
 import styled from 'styled-components/macro';
 import { stack as Menu } from 'react-burger-menu';
 import { hero } from 'app/data/data';
 import Scroll from 'react-scroll';
+import { useState } from 'react';
 
 var Link = Scroll.Link;
 
 export function Nav() {
+  const [isMenuOpen, handleMenu] = useState(false);
+
   const matches = useMediaQuery('(min-width:980px)');
   const resumeLink = useMediaQuery('(min-width:1300px)');
 
+  const handleCloseMenu = () => {
+    handleMenu(false);
+  };
+  const handleStateChange = state => {
+    handleMenu(state.isOpen);
+  };
+
   const mobileNav = (
     <MobileWrapper>
-      <Menu right>
-        <Link to="home" spy={true} smooth={true} offset={-100} duration={500}>
+      <Menu right isOpen={isMenuOpen} onStateChange={handleStateChange}>
+        <Link
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          onClick={() => handleCloseMenu()}
+        >
           <Item>Home</Item>
         </Link>
-        <Link to="about" spy={true} smooth={true} offset={-100} duration={500}>
+        <Link
+          to="about"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          onClick={() => handleCloseMenu()}
+        >
           <Item>About</Item>
         </Link>
         <Link
@@ -26,10 +49,18 @@ export function Nav() {
           smooth={true}
           offset={-100}
           duration={500}
+          onClick={() => handleCloseMenu()}
         >
           <Item>Experience</Item>
         </Link>
-        <Link to="work" spy={true} smooth={true} offset={-100} duration={500}>
+        <Link
+          to="work"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          onClick={() => handleCloseMenu()}
+        >
           <Item>Work</Item>
         </Link>
         <Item
@@ -89,97 +120,6 @@ export function Nav() {
   return <>{matches ? desktopNav : mobileNav}</>;
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  margin-right: -1rem;
-  align-items: center;
-  .active {
-    border-bottom: 2px solid #fff;
-  }
-`;
-
-const MobileWrapper = styled.div`
-  display: flex;
-  margin-right: -1rem;
-  /* Position and sizing of burger button */
-  .bm-burger-button {
-    position: fixed;
-    width: 36px;
-    height: 30px;
-    right: 40px;
-    top: 24px;
-  }
-
-  /* Color/shape of burger icon bars */
-  .bm-burger-bars {
-    background: #373a47;
-  }
-
-  /* Color/shape of burger icon bars on hover*/
-  .bm-burger-bars-hover {
-    background: #a90000;
-  }
-
-  /* Position and sizing of clickable cross button */
-  .bm-cross-button {
-    height: 24px;
-    width: 24px;
-  }
-
-  /* Color/shape of close button cross */
-  .bm-cross {
-    background: #bdc3c7;
-  }
-
-  /*
-Sidebar wrapper styles
-Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-*/
-  .bm-menu-wrap {
-    position: fixed;
-    height: 100vh;
-    top: 0;
-    right: 0;
-  }
-
-  /* General sidebar styles */
-  .bm-menu {
-    background: #373a47;
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
-    height: 200vh !important;
-  }
-
-  /* Morph shape necessary with bubble or elastic */
-  .bm-morph-shape {
-    fill: #373a47;
-  }
-
-  /* Wrapper for item list */
-  .bm-item-list {
-    color: #b8b7ad;
-    padding: 0.8em;
-  }
-
-  /* Individual item */
-  .bm-item {
-    display: inline-block;
-  }
-
-  /* Styling of overlay */
-  .bm-overlay {
-    position: fixed;
-    z-index: 1000;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 1;
-    transition: opacity 0.3s ease 0s;
-    top: 0;
-    right: 0;
-  }
-`;
-
 const Item = styled.a`
   color: ${p => p.theme.textSecondary};
   cursor: pointer;
@@ -215,5 +155,99 @@ const Button = styled.button`
     background-color: ${p => p.theme.primary};
     color: ${p => p.theme.background};
     font-weight: 400;
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  margin-right: -1rem;
+  align-items: center;
+  .active {
+    border-bottom: 2px solid ${props => props.theme.text};
+  }
+  .active ${Item} {
+    color: ${props => props.theme.text};
+  }
+`;
+
+const MobileWrapper = styled.div`
+  display: flex;
+  margin-right: -1rem;
+  /* Position and sizing of burger button */
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    right: 40px;
+    top: 24px;
+  }
+
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #373a47;
+  }
+
+  /* Color/shape of burger icon bars on hover*/
+  .bm-burger-bars-hover {
+    background: ${props => props.theme.primary};
+  }
+
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #bdc3c7;
+  }
+
+  /*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    right: 0;
+  }
+
+  /* General sidebar styles */
+  .bm-menu {
+    background: ${props => props.theme.background};
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    height: 200vh !important;
+  }
+
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: ${props => props.theme.background};
+  }
+
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+  }
+
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+
+  /* Styling of overlay */
+  .bm-overlay {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transition: opacity 0.3s ease 0s;
+    top: 0;
+    right: 0;
   }
 `;

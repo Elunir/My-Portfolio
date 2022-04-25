@@ -54,3 +54,26 @@ export const experience = [
     ],
   },
 ];
+
+export const project = [
+  {
+    name: 'Tech-Hub',
+    image: require('app/data/images/techHub.png'),
+  },
+  {
+    name: 'Car-Hub',
+    image: require('app/data/images/carHub.png'),
+  },
+  {
+    name: 'Gym-Hub',
+    image: require('app/data/images/gym.png'),
+  },
+  {
+    name: 'Gold-eCommerce',
+    image: require('app/data/images/gold.png'),
+  },
+  {
+    name: 'Football-Trivia',
+    image: require('app/data/images/football.png'),
+  },
+];
