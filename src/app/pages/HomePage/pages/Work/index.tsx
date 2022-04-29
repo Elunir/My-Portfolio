@@ -5,6 +5,7 @@ import { themes } from 'styles/theme/themes';
 import { project } from 'app/data/data';
 import { motion } from 'framer-motion';
 import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
+import { Link } from 'react-router-dom';
 
 export function Work() {
   const matches = useMediaQuery('(min-width:980px)');
@@ -20,7 +21,7 @@ export function Work() {
         gridTemplateColumns={matches ? '1fr 1fr' : '1fr'}
       >
         {project.map((project, index) => (
-          <motion.div
+          <Div
             whileHover={{
               scale: 1.1,
             }}
@@ -30,23 +31,25 @@ export function Work() {
               duration: 0.3,
             }}
           >
-            <Grid
-              item
-              style={{
-                backgroundColor: themes.dark.backgroundVariant,
-                padding: 24,
-                borderRadius: 8,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
-            >
-              <Image src={project.image} />
-              <Text style={{ marginTop: 16, fontSize: 20 }}>
-                {project.name}
-              </Text>
-            </Grid>
-          </motion.div>
+            <Link to={`/work/${project.id}`} className="projectLink">
+              <Grid
+                item
+                style={{
+                  backgroundColor: themes.dark.backgroundVariant,
+                  padding: 24,
+                  borderRadius: 8,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+              >
+                <Image src={project.image} />
+                <Text style={{ marginTop: 16, fontSize: 20 }}>
+                  {project.name}
+                </Text>
+              </Grid>
+            </Link>
+          </Div>
         ))}
       </Grid>
     </Box>
@@ -61,6 +64,15 @@ export function Work() {
 //   border-radius: 8px;
 //   margin-left: 20px;
 // `;
+
+const Div = styled(motion.div)`
+  .projectLink {
+    :link {
+      text-decoration: none;
+      color: ${p => p.theme.text};
+    }
+  }
+`;
 
 const Title = styled.div`
   font-size: 2rem;
