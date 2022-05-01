@@ -13,7 +13,7 @@ export const experience = [
     ],
   },
   {
-    designation: 'Graphic Designer',
+    designation: 'Print Designer',
     company: 'View Design - Kuwait City',
     duration: '2017 - 2019',
     list: [

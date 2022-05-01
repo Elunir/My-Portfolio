@@ -13,7 +13,7 @@ export function About() {
       <div
         style={{
           display: 'flex',
-          alignItems: matches ? '' : 'center',
+          alignItems: matches ? 'flex-start' : 'center',
           flexDirection: matches ? 'row' : 'column',
         }}
       >
@@ -22,7 +22,7 @@ export function About() {
             <Text>{about.description}</Text>
           </div>
         </div>
-        <Image src={about.image} />
+        {about.useImage ? <Image src={about.image} /> : undefined}
       </div>
     </Div>
   );
@@ -46,7 +46,7 @@ const Title = styled.div`
 `;
 
 const Text = styled.span`
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: ${props => props.theme.text};
 `;
 

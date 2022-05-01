@@ -4,19 +4,18 @@ export const hero = {
   resumeLink: '',
   role: [
     {
-      name: 'Graphic Designer',
-      description:
-        'I am a Graphic Designer with a passion for creating beautiful and functional designs. I have a strong background in design and I am always looking for new ways to improve my skills.',
+      name: 'Print Designer',
+      description: `Conceptualizing designs, preparing mockups, and creating final designs for printing.`,
     },
     {
       name: 'UI/UX Designer',
       description:
-        'I am a UI/UX Designer with a passion for creating beautiful and functional designs.',
+        'Creating user-friendly interfaces and experiences for web and mobile applications.',
     },
     {
       name: 'Frontend Developer',
       description:
-        'I am a Frontend Developer with a passion for creating beautiful and functional designs.',
+        'Developing applications with the best practices in mind and delivering high-quality applications.',
     },
   ],
 };
