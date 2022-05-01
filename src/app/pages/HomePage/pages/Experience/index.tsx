@@ -60,30 +60,30 @@ const Job = styled.div`
 `;
 
 const JobTitle = styled.span`
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: ${props => props.theme.primary};
 `;
 
 const Designation = styled.span`
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: ${props => props.theme.text};
 `;
 
 const Year = styled.span`
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: ${props => props.theme.textSecondary};
 `;
 
 const List = styled.ul`
-  padding-left: unset;
-  list-style: none;
+  padding-left: 16px;
 `;
 const ListItem = styled.li`
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: ${props => props.theme.text};
-  ::before {
-    content: '>';
-    color: ${props => props.theme.primary};
-    margin: 0 10px;
-  }
+  margin-bottom: 1rem;
 `;
+// ::before {
+//   content: '>';
+//   color: ${props => props.theme.primary};
+//   margin: 0 10px;
+// }
