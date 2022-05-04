@@ -13,7 +13,7 @@ export const hero = {
         'Creating user-friendly interfaces and experiences for web and mobile applications.',
     },
     {
-      name: 'Frontend Developer',
+      name: 'Web Developer',
       description:
         'Developing applications with the best practices in mind and delivering high-quality applications.',
     },
