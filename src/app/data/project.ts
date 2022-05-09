@@ -10,21 +10,21 @@ export const project = [
         {
           topic: 'The Task',
           description:
-            'Re-designing application and website to be cleaner and modern but still keeping the same design elements.',
+            'Revamping an existing application and website to make them more user-friendly and aesthetically pleasing ',
           image: require('app/data/images/techHub1.png'),
-          position: 'bottom',
-        },
-        {
-          topic: 'Inspiration + Process',
-          description:
-            'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia! Quasi, quisquam.',
-          image: require('app/data/images/techHub1.png'),
-          position: 'bottom',
+          position: 'right',
         },
         {
           topic: 'My Role and Responsibilities',
           description:
-            'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia! Quasi, quisquam.',
+            'As UI/UX Designer it was my responsibility to keep the design elements and the functionality of the application and website clean and modern',
+          image: require('app/data/images/techHub1.png'),
+          position: 'left',
+        },
+        {
+          topic: 'Inspiration + Process',
+          description:
+            'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia! Quasi, quisquam',
           image: require('app/data/images/techHub1.png'),
           position: 'bottom',
         },
@@ -49,7 +49,7 @@ export const project = [
         {
           topic: 'Inspiration + Process',
           description:
-            'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia! Quasi, quisquam.',
+            'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia! Quasi, quisquam',
           image: require('app/data/images/techHub1.png'),
           position: 'bottom',
         },

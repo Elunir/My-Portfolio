@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 import { experience } from 'app/data/data';
 import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
+import Fade from 'react-reveal/Fade';
 
 export function Experience() {
   const matches = useMediaQuery('(min-width:980px)');
@@ -24,7 +25,11 @@ export function Experience() {
                 <Year>{item.duration}</Year>
                 <List>
                   {item.list.map((listItem, index) => {
-                    return <ListItem key={index}>{listItem.text}</ListItem>;
+                    return (
+                      <Fade right>
+                        <ListItem key={index}>{listItem.text}</ListItem>
+                      </Fade>
+                    );
                   })}
                 </List>
               </Job>

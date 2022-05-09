@@ -57,16 +57,18 @@ export function ProjectDetails(props: Props) {
           return (
             <Questions
               key={i}
-              style={{
-                flexDirection:
-                  topic.position === 'top' ? 'column-reverse' : 'column',
-              }}
+              className={topic.position !== 'none' ? topic.position : undefined}
             >
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <Question>{topic.topic}</Question>
-                <Answer>{topic.description}</Answer>
+                {topic.topic ? <Question>{topic.topic}</Question> : undefined}
+                {topic.description ? (
+                  <Answer>{topic.description}</Answer>
+                ) : undefined}
               </div>
-              <Image src={topic.image} />
+              <Image
+                className={topic.position === 'none' ? 'none' : undefined}
+                src={topic.image}
+              />
             </Questions>
           );
         })}
@@ -89,6 +91,29 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 320px;
+  .top {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .bottom {
+    display: flex;
+    flex-direction: column;
+  }
+  .right {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+  }
+  .left {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    direction: rtl;
+    text-align: left;
+  }
+  .none {
+    display none;
+  }
 `;
 
 const Title = styled.div`
@@ -104,7 +129,6 @@ const Image = styled.img`
   border-radius: 8px;
 `;
 const Questions = styled.div`
-  display: flex;
   margin: 8px 0 20px 0;
 `;
 const Question = styled.span`

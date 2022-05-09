@@ -22,7 +22,7 @@ export function Hero() {
   React.useEffect(() => {
     const intervalId = setInterval(
       () => setIndex(index => index + 1),
-      5500, // every 3 seconds
+      3500, // every 4 seconds
     );
     return () => clearTimeout(intervalId);
   }, []);
