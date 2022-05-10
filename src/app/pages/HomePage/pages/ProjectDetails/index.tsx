@@ -133,11 +133,11 @@ const Questions = styled.div`
 `;
 const Question = styled.span`
   font-weight: 500;
-  color: ${p => p.theme.text};
+  color: ${p => p.theme.white};
   font-size: 1.5rem;
   margin-bottom: 10px;
 `;
 const Answer = styled.span`
-  color: ${p => p.theme.textSecondary};
+  color: ${p => p.theme.text};
   font-size: 1.25rem;
 `;
