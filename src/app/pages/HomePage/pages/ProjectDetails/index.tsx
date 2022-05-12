@@ -68,6 +68,7 @@ export function ProjectDetails(props: Props) {
               <Image
                 className={topic.position === 'none' ? 'none' : undefined}
                 src={topic.image}
+                loading="lazy"
               />
             </Questions>
           );
