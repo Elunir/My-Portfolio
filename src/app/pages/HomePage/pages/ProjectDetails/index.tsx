@@ -6,6 +6,7 @@ import { project } from 'app/data/data';
 import { useEffect, useState } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 import { PageWrapper, PageWrapperMobile } from 'app/components/PageWrapper';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 interface Props {
   projectID: number;
@@ -65,10 +66,12 @@ export function ProjectDetails(props: Props) {
                   <Answer>{topic.description}</Answer>
                 ) : undefined}
               </div>
-              <Image
+              <LazyLoadImage
                 className={topic.position === 'none' ? 'none' : undefined}
                 src={topic.image}
-                loading="lazy"
+                placeholderSrc={require('app/data/images/loader.gif')}
+                width={'100%'}
+                effect="blur"
               />
             </Questions>
           );
