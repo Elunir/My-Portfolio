@@ -41,12 +41,18 @@ export function ProjectDetails(props: Props) {
         <div style={{ marginTop: -40 }}>Go Back</div>
       </Link>
       <Wrapper>
-        <Image
-          src={thisProjectDetails.image}
-          style={{
-            display: thisProjectDetails.visibility === true ? 'block' : 'none',
-          }}
-        />
+        <div className="imageStyle">
+          <LazyLoadImage
+            style={{
+              display:
+                thisProjectDetails.visibility === true ? 'block' : 'none',
+            }}
+            src={thisProjectDetails.image}
+            placeholderSrc={require('app/data/images/loader.gif')}
+            width={'100%'}
+            effect="blur"
+          />
+        </div>
         <Title
           style={{
             marginTop: thisProjectDetails.visibility === true ? '0px' : '48px',
@@ -66,13 +72,15 @@ export function ProjectDetails(props: Props) {
                   <Answer>{topic.description}</Answer>
                 ) : undefined}
               </div>
-              <LazyLoadImage
-                className={topic.position === 'none' ? 'none' : undefined}
-                src={topic.image}
-                placeholderSrc={require('app/data/images/loader.gif')}
-                width={'100%'}
-                effect="blur"
-              />
+              <div className="imageStyle">
+                <LazyLoadImage
+                  className={topic.position === 'none' ? 'none' : undefined}
+                  src={topic.image}
+                  placeholderSrc={require('app/data/images/loader.gif')}
+                  width={'100%'}
+                  effect="blur"
+                />
+              </div>
             </Questions>
           );
         })}
@@ -118,6 +126,9 @@ const Wrapper = styled.div`
   .none {
     display none;
   }
+  .imageStyle {
+    border-radius: 20px;
+    overflow: hidden;
 `;
 
 const Title = styled.div`
@@ -126,12 +137,6 @@ const Title = styled.div`
   font-size: 1.75rem;
 `;
 
-const Image = styled.img`
-  width: 100%;
-  margin: 20px 0;
-  height: auto;
-  border-radius: 8px;
-`;
 const Questions = styled.div`
   margin: 8px 0 20px 0;
 `;
@@ -144,4 +149,5 @@ const Question = styled.span`
 const Answer = styled.span`
   color: ${p => p.theme.text};
   font-size: 1.25rem;
+  margin-bottom: 1rem;
 `;

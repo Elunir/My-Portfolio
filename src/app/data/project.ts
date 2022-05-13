@@ -117,6 +117,8 @@ export const project = [
       topics: [
         {
           description: 'Wireframe of the app',
+          // image: require('app/data/images/gym/SpinningCycle.png'),
+          position: 'none',
         },
         {
           topic: 'Spinning Cycle',
@@ -207,27 +209,30 @@ export const project = [
     image: require('app/data/images/gold.png'),
     details: {
       image: require('app/data/images/gym/Class.png'),
-      visibility: true,
+      visibility: false,
       topics: [
         {
-          topic: 'The Task',
-          description:
-            'Re-designing application and website to be cleaner and modern but still keeping the same design elements.',
-          image: require('app/data/images/gym/Class.png'),
+          image: require('app/data/images/gold/gold1.png'),
           position: 'bottom',
         },
         {
-          topic: 'Inspiration + Process',
-          description:
-            'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia! Quasi, quisquam.',
-          image: require('app/data/images/techhub/techHub1.png'),
+          image: require('app/data/images/gold/gold2.png'),
           position: 'bottom',
         },
         {
-          topic: 'My Role and Responsibilities',
-          description:
-            'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia! Quasi, quisquam.',
-          image: require('app/data/images/techhub/techHub1.png'),
+          image: require('app/data/images/gold/gold3.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/gold/gold4.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/gold/gold5.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/gold/gold6.png'),
           position: 'bottom',
         },
       ],
@@ -239,7 +244,7 @@ export const project = [
     image: require('app/data/images/football.png'),
     details: {
       image: require('app/data/images/football/football1.png'),
-      visibility: true,
+      visibility: false,
       topics: [
         {
           topic: 'The Task',
@@ -288,6 +293,76 @@ export const project = [
         },
         {
           image: require('app/data/images/football/football10.png'),
+          position: 'bottom',
+        },
+      ],
+    },
+  },
+  {
+    id: 6,
+    name: 'eCommerce',
+    image: require('app/data/images/ecom.png'),
+    details: {
+      image: require('app/data/images/gym/Class.png'),
+      visibility: false,
+      topics: [
+        {
+          image: require('app/data/images/ecom/ecom1.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/ecom/ecom2.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/ecom/ecom3.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/ecom/ecom4.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/ecom/ecom5.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/ecom/ecom6.png'),
+          position: 'bottom',
+        },
+      ],
+    },
+  },
+  {
+    id: 6,
+    name: 'eCommerce Website',
+    image: require('app/data/images/ecomWeb.png'),
+    details: {
+      image: require('app/data/images/gym/Class.png'),
+      visibility: false,
+      topics: [
+        {
+          image: require('app/data/images/ecomWeb/ecomWeb1.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/ecomWeb/ecomWeb2.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/ecomWeb/ecomWeb3.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/ecomWeb/ecomWeb4.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/ecomWeb/ecomWeb5.png'),
+          position: 'bottom',
+        },
+        {
+          image: require('app/data/images/ecomWeb/ecomWeb6.png'),
           position: 'bottom',
         },
       ],
