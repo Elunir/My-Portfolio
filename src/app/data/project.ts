@@ -334,7 +334,7 @@ export const project = [
     },
   },
   {
-    id: 6,
+    id: 7,
     name: 'eCommerce Website',
     image: require('app/data/images/ecomWeb.png'),
     details: {
