@@ -2,13 +2,17 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import styled from 'styled-components/macro';
 import { themes } from 'styles/theme/themes';
-import { project } from 'app/data/data';
+// import { project } from 'app/data/data';
 import { motion } from 'framer-motion';
 import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 import { Link } from 'react-router-dom';
+import { allData } from 'app/api/slice/selectors';
+import { useSelector } from 'react-redux';
 
 export function Work() {
   const matches = useMediaQuery('(min-width:980px)');
+  const portfolio = useSelector(allData);
+  const project = portfolio.data.projects;
 
   return (
     <Box id="work" style={{ marginTop: 20 }} sx={{ flexGrow: 1 }}>

@@ -1,7 +1,11 @@
 import styled from 'styled-components/macro';
-import { hero } from 'app/data/data';
+import { allData } from 'app/api/slice/selectors';
+import { useSelector } from 'react-redux';
 
 export function FloatingDetails() {
+  const portfolio = useSelector(allData);
+  const hero = portfolio.data.hero;
+
   return (
     <Div>
       <div className="details">

@@ -2,11 +2,13 @@
 import styled from 'styled-components/macro';
 import { Link } from 'app/components/Link';
 import { Helmet } from 'react-helmet-async';
-import { project } from 'app/data/data';
+// import { project } from 'app/data/data';
 import { useEffect, useState } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 import { PageWrapper, PageWrapperMobile } from 'app/components/PageWrapper';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { allData } from 'app/api/slice/selectors';
+import { useSelector } from 'react-redux';
 
 interface Props {
   projectID: number;
@@ -17,6 +19,9 @@ export function ProjectDetails(props: Props) {
   const [thisProject, setThisProject] = useState([] as any);
   const [thisProjectDetails, setThisProjectDetails] = useState([] as any);
   const [thisProjectQuestions, setThisProjectQuestions] = useState([] as any);
+
+  const portfolio = useSelector(allData);
+  const project = portfolio.data.projects;
 
   const matches = useMediaQuery('(min-width:980px)');
 

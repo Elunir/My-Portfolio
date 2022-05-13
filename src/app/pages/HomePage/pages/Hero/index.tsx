@@ -1,13 +1,14 @@
 import styled, { keyframes } from 'styled-components/macro';
 import { ReactComponent as CodingIcon } from '../../assets/coding.svg';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { hero } from 'app/data/data';
 import { FloatingDetails } from '../FloatingDetails';
 import { zoomInDown, slideInUp, rubberBand, fadeIn } from 'react-animations';
 import { motion } from 'framer-motion';
 import { themes } from 'styles/theme/themes';
 import TextTransition, { presets } from 'react-text-transition';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { allData } from 'app/api/slice/selectors';
 
 const zoomDown = keyframes`${zoomInDown}`;
 const slideUp = keyframes`${slideInUp}`;
@@ -16,10 +17,11 @@ const fade = keyframes`${fadeIn}`;
 
 export function Hero() {
   const matches = useMediaQuery('(min-width:980px)');
-
   const [index, setIndex] = useState(0);
+  const portfolio = useSelector(allData);
+  const hero = portfolio.data.hero;
 
-  React.useEffect(() => {
+  useEffect(() => {
     const intervalId = setInterval(
       () => setIndex(index => index + 1),
       3500, // every 4 seconds

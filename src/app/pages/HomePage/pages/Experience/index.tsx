@@ -1,10 +1,13 @@
 import styled from 'styled-components/macro';
-import { experience } from 'app/data/data';
 import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 import Fade from 'react-reveal/Fade';
+import { allData } from 'app/api/slice/selectors';
+import { useSelector } from 'react-redux';
 
 export function Experience() {
   const matches = useMediaQuery('(min-width:980px)');
+  const portfolio = useSelector(allData);
+  const experience = portfolio.data.experience;
 
   return (
     <Div id="experience" style={{ marginLeft: matches ? 40 : 0 }}>

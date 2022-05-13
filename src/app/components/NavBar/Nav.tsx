@@ -1,9 +1,10 @@
 import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 import styled from 'styled-components/macro';
 import { stack as Menu } from 'react-burger-menu';
-import { hero } from 'app/data/data';
 import Scroll from 'react-scroll';
 import { useState } from 'react';
+import { allData } from 'app/api/slice/selectors';
+import { useSelector } from 'react-redux';
 
 var Link = Scroll.Link;
 
@@ -12,6 +13,9 @@ export function Nav() {
 
   const matches = useMediaQuery('(min-width:980px)');
   const resumeLink = useMediaQuery('(min-width:1300px)');
+
+  const portfolio = useSelector(allData);
+  const hero = portfolio.data.hero;
 
   const handleCloseMenu = () => {
     handleMenu(false);

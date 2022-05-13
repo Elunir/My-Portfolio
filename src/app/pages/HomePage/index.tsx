@@ -9,6 +9,9 @@ import { Footer } from './pages/Footer';
 import Fade from 'react-reveal/Fade';
 import styled from 'styled-components/macro';
 import { useMediaQuery } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { allData } from 'app/api/slice/selectors';
+import { Loader } from 'app/components/Loader';
 // import Scroll from 'react-scroll';
 // var Element = Scroll.Element;
 
@@ -20,6 +23,11 @@ import { useMediaQuery } from '@mui/material';
 
 export function HomePage() {
   const matches = useMediaQuery('(min-width:980px)');
+  const portfolio = useSelector(allData);
+
+  if (portfolio.isLoading) {
+    return <Loader />;
+  }
 
   return (
     <Div>

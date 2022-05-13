@@ -1,9 +1,12 @@
 import styled from 'styled-components/macro';
-import { about } from 'app/data/data';
 import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
+import { allData } from 'app/api/slice/selectors';
+import { useSelector } from 'react-redux';
 
 export function About() {
   const matches = useMediaQuery('(min-width:700px)');
+  const portfolio = useSelector(allData);
+  const about = portfolio.data.about;
 
   return (
     <Div id="about">

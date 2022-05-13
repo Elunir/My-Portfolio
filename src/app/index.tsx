@@ -15,9 +15,19 @@ import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import { ProjectDetails } from './pages/HomePage/pages/ProjectDetails';
+import { useEffect } from 'react';
+import { usePortfolioDataSlice } from './api/slice';
+import { useDispatch } from 'react-redux';
 
 export function App() {
   const { i18n } = useTranslation();
+  const { actions } = usePortfolioDataSlice();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(actions.loadData());
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <BrowserRouter>
