@@ -8,11 +8,44 @@ import useMediaQuery from '@mui/material/useMediaQuery/useMediaQuery';
 import { Link } from 'react-router-dom';
 import { allData } from 'app/api/slice/selectors';
 import { useSelector } from 'react-redux';
+import FlatList from 'flatlist-react';
 
 export function Work() {
   const matches = useMediaQuery('(min-width:980px)');
   const portfolio = useSelector(allData);
   const project = portfolio.data.projects;
+
+  const renderProject = (project, idx) => {
+    return (
+      <Div
+        whileHover={{
+          scale: 1.1,
+        }}
+        whileTap={{ scale: 0.9 }}
+        transition={{
+          type: 'tween',
+          duration: 0.3,
+        }}
+      >
+        <Link to={`/work/${project.id}`} className="projectLink">
+          <Grid
+            item
+            style={{
+              backgroundColor: themes.dark.backgroundVariant,
+              padding: 24,
+              borderRadius: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Image src={project.image} />
+            <Text style={{ marginTop: 16, fontSize: 20 }}>{project.name}</Text>
+          </Grid>
+        </Link>
+      </Div>
+    );
+  };
 
   return (
     <Box id="work" style={{ marginTop: 20 }} sx={{ flexGrow: 1 }}>
@@ -24,50 +57,16 @@ export function Work() {
         gap={'28px'}
         gridTemplateColumns={matches ? '1fr 1fr' : '1fr'}
       >
-        {project.map((project, index) => (
-          <Div
-            whileHover={{
-              scale: 1.1,
-            }}
-            whileTap={{ scale: 0.9 }}
-            transition={{
-              type: 'tween',
-              duration: 0.3,
-            }}
-          >
-            <Link to={`/work/${project.id}`} className="projectLink">
-              <Grid
-                item
-                style={{
-                  backgroundColor: themes.dark.backgroundVariant,
-                  padding: 24,
-                  borderRadius: 8,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                }}
-              >
-                <Image src={project.image} />
-                <Text style={{ marginTop: 16, fontSize: 20 }}>
-                  {project.name}
-                </Text>
-              </Grid>
-            </Link>
-          </Div>
-        ))}
+        <FlatList
+          list={project}
+          renderItem={renderProject}
+          keyExtractor={(item, idx) => item.id}
+          renderWhenEmpty={() => <div>No Projects Found!</div>}
+        />
       </Grid>
     </Box>
   );
 }
-
-// const Card = styled(motion.div)`
-//   background-color: ${p => p.theme.primary};
-//   justify-content: center;
-//   align-items: center;
-//   display: flex;
-//   border-radius: 8px;
-//   margin-left: 20px;
-// `;
 
 const Div = styled(motion.div)`
   .projectLink {
