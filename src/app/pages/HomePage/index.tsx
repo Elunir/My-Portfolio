@@ -57,7 +57,7 @@ export function HomePage() {
           <Fade right>
             <Experience />
           </Fade>
-          <Fade left>
+          <Fade>
             <Work />
           </Fade>
         </PageWrapperMobile>
