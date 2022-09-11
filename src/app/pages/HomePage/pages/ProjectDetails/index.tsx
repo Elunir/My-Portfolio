@@ -26,15 +26,22 @@ export function ProjectDetails(props: Props) {
   const matches = useMediaQuery('(min-width:980px)');
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    project.map((project, i) => {
-      if (project.id === projectID) {
-        setThisProject(project);
-        setThisProjectDetails(project.details);
-        setThisProjectQuestions(project.details?.topics);
-      }
-    });
-  });
+    if (project) {
+      const projectTimeout = setTimeout(() => {
+        window.scrollTo(0, 0);
+        project.map((project, i) => {
+          if (project.id === projectID) {
+            setThisProject(project);
+            setThisProjectDetails(project.details);
+            setThisProjectQuestions(project.details?.topics);
+          }
+        });
+      }, 1000);
+      return () => {
+        clearTimeout(projectTimeout);
+      };
+    }
+  }, [project, projectID]);
 
   const ProjectDetailsWrapper = (
     <>
